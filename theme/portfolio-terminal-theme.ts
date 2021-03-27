@@ -1,4 +1,4 @@
-import { extendTheme } from "native-base";
+import { extendTheme, useMediaQuery } from "native-base";
 
 export const theme = extendTheme({
   colors: {
@@ -23,19 +23,29 @@ export const theme = extendTheme({
       defaultProps: {
         color: "green.500",
       },
-      baseStyle: {
-        color: "green.500",
-        fontSize: "md",
+      baseStyle: () => {
+        const isLargerThan512 = useMediaQuery({ minWidth: 600 });
+
+        return {
+          color: "green.500",
+          fontSize: isLargerThan512[0] ? "md" : "sm",
+          textAlign: isLargerThan512[0] ? undefined : "center",
+        };
       },
     },
     Heading: {
-      baseStyle: {
-        color: "green.500",
+      baseStyle: () => {
+        const isLargerThan512 = useMediaQuery({ minWidth: 600 });
+
+        return {
+          color: "green.500",
+          fontSize: isLargerThan512[0] ? "3xl" : "xl",
+        };
       },
     },
     Icon: {
       baseStyle: {
-          size:28,
+        size: 28,
         color: "green.500",
       },
     },

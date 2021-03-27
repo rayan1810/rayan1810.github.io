@@ -1,15 +1,26 @@
 import React from "react";
-import { Center, Avatar, Box, Heading, HStack } from "native-base";
+import {
+  Center,
+  Avatar,
+  Box,
+  Heading,
+  Stack,
+  useMediaQuery,
+} from "native-base";
 
 export function Header() {
+  const isLargerThan600 = useMediaQuery({ minWidth: 600 });
   return (
     <Center flexX={1} mt={3}>
       <Box w="85%">
-        <HStack space={4} m={3} alignItems="center">
+        <Stack
+          direction={isLargerThan600[0] ? "row" : "column"}
+          space={4}
+          m={3}
+          alignItems="center"
+        >
           <Avatar
             size={24}
-            w={{ md: 24, sm: 16 }}
-            h={{ md: 24, sm: 16 }}
             borderWidth={1}
             source={{
               uri:
@@ -19,7 +30,7 @@ export function Header() {
             RS
           </Avatar>
           <Heading>Hey, It's Rohit 😉</Heading>
-        </HStack>
+        </Stack>
       </Box>
     </Center>
   );
