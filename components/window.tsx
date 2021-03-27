@@ -37,7 +37,7 @@ export function Window(props: any) {
         </HStack>
         <Box _text={{ color: "gray.400" }} flex={1} alignItems="center">
           {isLargerThan512[0]
-            ? "Made with ❤️ using NextJS and NativeBase 3.0"
+            ? "Made with ❤️ using NativeBase 3.0"
             : "Update Coming Soon..."}
         </Box>
       </Flex>
